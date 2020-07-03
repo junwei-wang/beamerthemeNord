@@ -1,0 +1,80 @@
+% Copyright 2020 by Junwei Wang
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+
+\ProvidesPackage{beamerthemeNord}[2020/07/04]
+
+\mode<presentation>
+
+\RequirePackage{ifthen}
+
+\usecolortheme{Nord}
+\usefonttheme{Nord}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamersize{text margin left=6mm,text margin right=6mm}
+
+
+\setbeamertemplate{caption}{\insertcaption}
+
+\setbeamertemplate{itemize item}{$\ast$}
+\setbeamertemplate{itemize subitem}{$\ast$}
+\setbeamertemplate{itemize subsubitem}{$\ast$}
+\setbeamertemplate{frametitle}{
+  {\usebeamercolor[fg]{normal text} \mdseries >> }~\boldmath\insertframetitle%
+  \hfill\ifx\insertframesubtitle\@empty\else{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\fi
+}
+\setbeamertemplate{frametitle continuation}[from second][\insertcontinuationtext]
+\setbeamertemplate{headline}
+{%
+\begin{beamercolorbox}{section in head/foot}
+\vskip2pt\insertnavigation{\paperwidth}\vskip5pt
+\end{beamercolorbox}%
+}
+\setbeamertemplate{footline}{
+  \newbox\nord@tmpbox
+  \setbox\nord@tmpbox\hbox{[\insertframenumber/\inserttotalframenumber]}
+  \vspace{5.2mm}
+  \hspace{2mm}\noindent\hfill\box\nord@tmpbox\hspace{2mm}
+  \vspace{1.3mm}
+}
+\setbeamertemplate{title page}{
+  \renewcommand\thefootnote{\fnsymbol{footnote}}
+  \setcounter{footnote}{1} % \dagger
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\bfseries\boldmath\inserttitle}
+  \ifx\insertsubtitle\@empty\else\\[1em] {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\fi~\\[2em]
+  {\structure{by}} \insertauthor\ \ifx\insertinstitute\@empty\else\quad(\insertinstitute)\fi
+  \\[1pt]
+  {\structure{on}} \insertdate\\
+  \renewcommand\thefootnote{\arabic{footnote}}
+  \setcounter{footnote}{0}
+}
+
+% table of contents
+\setbeamertemplate{section in toc}{
+  \inserttocsection\\\smallskip
+}
+\setbeamertemplate{subsection in toc}{~$\ast$~~\inserttocsubsection\\\smallskip}
+\setbeamertemplate{subsection in toc shaded}[default][100]
+
+% block
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\addtobeamertemplate{block begin}{%
+  \setlength{\textwidth}{0.85\textwidth}%
+}{}
+\addtobeamertemplate{block alerted begin}{%
+  \setlength{\textwidth}{0.85\textwidth}%
+}{}
+\addtobeamertemplate{block example begin}{%
+  \setlength{\textwidth}{0.85\textwidth}%
+}{}
+
+
+\mode
+<all>
+
+\endinput

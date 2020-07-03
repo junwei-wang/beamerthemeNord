@@ -1,0 +1,126 @@
+\documentclass[compress]{beamer}
+
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage{tikz}
+
+\usetheme{Nord}
+\setmainfont{Yanone Kaffeesatz}
+\setsansfont{Andika New Basic}
+\setmonofont{DejaVu Sans Mono}
+
+\AtBeginSection[]
+{
+  \begin{frame}[c,noframenumbering,plain]
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}[c,noframenumbering,plain]
+    \tableofcontents[sectionstyle=show/hide,subsectionstyle=show/shaded/hide]
+  \end{frame}
+}
+
+\title{Beamer Theme ``Nord''}
+\subtitle{A simple beamer theme that uses ``nord'' color scheme}
+\author{Junwei Wang}
+\institute{CryptoExperts}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain,noframenumbering]
+  \maketitle
+\end{frame}
+
+
+\section{Appearance}
+
+\subsection{Colors}
+
+\begin{frame}{Defined Colors}{This is a subtitle}
+  \begin{description}[Snow Storm]
+  \item[Polar Night]
+    \textcolor{NordDarkBlack}{NordDarkBlack} \quad \textcolor{NordBlack}{NordBlack}\\
+    \textcolor{NordMediumBlack}{NordMediumBlack} \quad \textcolor{NordBrightBlack}{NordBrightBlack}
+  \item[Snow Storm]
+    \textcolor{NordWhite}{NordWhite} \quad \textcolor{NordBrightWhite}{NordBrightWhite}
+  \item[Forest]
+    \textcolor{NordCyan}{NordCyan} \quad \textcolor{NordBrightCyan}{NordBrightCyan}\\
+    \textcolor{NordBlue}{NordBlue} \quad \textcolor{NordBrightBlue}{NordBrightBlue}
+  \item[Aurora]
+    \textcolor{NordRed}{NordRed} \quad \textcolor{NordOrange}{NordOrange} \\
+    \textcolor{NordYellow}{NordYellow} \quad \textcolor{NordGreen}{NordGreen} \\
+    \textcolor{NordMagenta}{NordMagenta}
+  \end{description}
+\end{frame}
+
+\subsection{Fonts}
+
+\begin{frame}[fragile]{Recommend Fonts}
+  \begin{description}[Selected Fonts]
+  \item[Selected Fonts] recommended for this theme\\
+    \begin{lstlisting}[basicstyle = \ttfamily\small]
+\setmainfont{Yanone Kaffeesatz}
+\setsansfont{Andika New Basic}
+\setmonofont{DejaVu Sans Mono}
+    \end{lstlisting}
+  \item[Download] {\small \url{https://www.fontsquirrel.com/}}
+  \item[Install Fonts] {\small \url{https://www.google.com/get/noto/help/install/}}
+  \item[Compilation] compile with XeLaTeX to use system-wide fonts
+  \end{description}
+
+\end{frame}
+
+
+\subsection{Blocks}
+
+\begin{frame}
+  \frametitle{Blocks}
+  \begin{block}{This is an Ordinary Block}
+    \[
+      a^2 + b^2 = c^2
+    \]
+  \end{block}
+  \begin{exampleblock}{This is an Example Block}
+    \[
+      3^2+4^2 = 5^2
+    \]
+  \end{exampleblock}
+  \begin{alertblock}{This is an Alert Block}
+    \[
+      3^2+4^2 \neq 5^2
+    \]
+  \end{alertblock}
+
+  \centering
+  \begin{minipage}{1.0\linewidth}
+    \begin{block}{This is an Horizontally-Aligned Ordinary Block}
+      \[
+        a^2 + b^2 = c^2
+      \]
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\subsection{Figures}
+
+\begin{frame}{Figures}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \draw [help lines,NordMagenta] (0,0) grid (5,4);
+    \end{tikzpicture}
+    \caption{Credits to Ti\textit{k}Z}
+  \end{figure}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
