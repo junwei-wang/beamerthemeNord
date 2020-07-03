@@ -1,13 +1,15 @@
 # beamerthemeNord
 
-A simple beamer them beamer theme using [nord](https://www.nordtheme.com/) color theme.
+A simple beamer theme using [Nord](https://www.nordtheme.com/) color theme.
 
 ## Usage 
 
-See [beamerthemeNord.pdf](./beamerthemeNord.pdf) and/or [beamerthemeNord.tex](./beamerthemeNord.tex)
+See [beamerthemeNord.pdf](./beamerthemeNord.pdf) or [beamerthemeNord.tex](./beamerthemeNord.tex)
+
+## Maintainer
+
+Junwei Wang (i.junwei.wang@gmail.com)
 
 ## License
-This software may be distributed and/or modified
 
-1. under the LaTeX Project Public License and/or
-2. under the GNU Public License.
+This work may be distributed and/or modified under the conditions of the LaTeX Project Public License, either version 1.3c of this license or (at your option) any later version. The latest version of this license is in http://www.latex-project.org/lppl.txt .
