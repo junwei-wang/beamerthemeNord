@@ -14,7 +14,8 @@
 \usepackage{fontspec}
 \usepackage{tikz}
 
-\usetheme[style=light]{Nord}
+\usetheme{Nord}
+% \usetheme[style=light]{Nord}
 
 \setmainfont{Yanone Kaffeesatz}
 \setsansfont{Andika New Basic}
@@ -48,6 +49,27 @@
 
 
 \section{Appearance}
+
+
+\begin{frame}[fragile]
+  \frametitle{Usage}
+  Simply include the following code in your preamble:
+
+  \begin{lstlisting}[basicstyle = \ttfamily\small]
+\usetheme{Nord}
+  \end{lstlisting}
+
+  \bigskip
+
+  By default, the appearance is in dark theme, however you can actively choose a either a light or a
+  dark theme.
+
+  \begin{lstlisting}[basicstyle = \ttfamily\small]
+\usetheme[style=light]{Nord}
+\usetheme[style=dark]{Nord}
+  \end{lstlisting}
+
+\end{frame}
 
 \subsection{Colors}
 
@@ -91,27 +113,27 @@
 
 \begin{frame}
   \frametitle{Blocks}
-  \begin{block}{This is an Ordinary Block}
+  \begin{block}{This is a Block}
     \[
       a^2 + b^2 = c^2
     \]
   \end{block}
   \begin{exampleblock}{This is an Example Block}
     \[
-      3^2+4^2 = 5^2
+      E = m \cdot c^{2}
     \]
   \end{exampleblock}
   \begin{alertblock}{This is an Alert Block}
     \[
-      3^2+4^2 \neq 5^2
+      e^{i\pi} + 1 = 0
     \]
   \end{alertblock}
 
   \centering
   \begin{minipage}{1.0\linewidth}
-    \begin{block}{This is an Horizontally-Aligned Ordinary Block}
+    \begin{block}{Horizontally-Aligned Block}
       \[
-        a^2 + b^2 = c^2
+        \log xy = \log x + \log y
       \]
     \end{block}
   \end{minipage}
