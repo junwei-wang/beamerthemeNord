@@ -6,9 +6,14 @@
 % The latest version of this license is in
 %   http://www.latex-project.org/lppl.txt
 
-\ProvidesPackage{beamerthemeNord}[2020/07/03 v0.1.0 A simple beamer theme using Nord color scheme]
+\ProvidesPackage{beamerthemeNord}[2020/08/24 v0.2.0 A simple beamer theme using Nord color scheme]
 
 \mode<presentation>
+
+\DeclareOptionBeamer{style}{
+  \PassOptionsToPackage{style=#1}{beamercolorthemeNord}
+}
+\ProcessOptionsBeamer
 
 \RequirePackage{ifthen}
 

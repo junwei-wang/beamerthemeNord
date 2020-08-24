@@ -14,7 +14,8 @@
 \usepackage{fontspec}
 \usepackage{tikz}
 
-\usetheme{Nord}
+\usetheme[style=light]{Nord}
+
 \setmainfont{Yanone Kaffeesatz}
 \setsansfont{Andika New Basic}
 \setmonofont{DejaVu Sans Mono}
@@ -56,7 +57,8 @@
     \textcolor{NordDarkBlack}{NordDarkBlack} \quad \textcolor{NordBlack}{NordBlack}\\
     \textcolor{NordMediumBlack}{NordMediumBlack} \quad \textcolor{NordBrightBlack}{NordBrightBlack}
   \item[Snow Storm]
-    \textcolor{NordWhite}{NordWhite} \quad \textcolor{NordBrightWhite}{NordBrightWhite}
+    \textcolor{NordWhite}{NordWhite} \quad \textcolor{NordBrighterWhite}{NordBrightestWhite}\\
+    \textcolor{NordBrightestWhite}{NordBrightestWhite}
   \item[Forest]
     \textcolor{NordCyan}{NordCyan} \quad \textcolor{NordBrightCyan}{NordBrightCyan}\\
     \textcolor{NordBlue}{NordBlue} \quad \textcolor{NordBrightBlue}{NordBrightBlue}
@@ -115,13 +117,31 @@
   \end{minipage}
 \end{frame}
 
+\subsection{Items}
+
+\begin{frame}{Items}
+  Itemize
+  \begin{itemize}
+    \item item 1
+    \item item 2
+  \end{itemize}
+
+  \bigskip
+
+  Enumerate
+  \begin{enumerate}
+    \item item 1
+    \item item 2
+  \end{enumerate}
+\end{frame}
+
 \subsection{Figures}
 
 \begin{frame}{Figures}
   \begin{figure}
     \centering
     \begin{tikzpicture}
-      \draw [help lines,NordMagenta] (0,0) grid (5,4);
+      \draw [help lines,NordMagenta,very thick] (0,0) grid (5,4);
     \end{tikzpicture}
     \caption{Credits to Ti\textit{k}Z}
   \end{figure}
@@ -132,4 +152,5 @@
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
+%%% TeX-engine: xetex
 %%% End:

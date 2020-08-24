@@ -17,8 +17,9 @@
 \definecolor{NordMediumBlack}{HTML}{434C5e}   % nord2
 \definecolor{NordBrightBlack}{HTML}{4C566A}   % nord3
 % Snow Storm
-\definecolor{NordWhite}{HTML}{E5E9F0}         % nord5
-\definecolor{NordBrightWhite}{HTML}{ECEFF4}   % nord6
+\definecolor{NordWhite}{HTML}{D8DEE9}         % nord4
+\definecolor{NordBrighterWhite}{HTML}{E5E9F0}         % nord5
+\definecolor{NordBrightestWhite}{HTML}{ECEFF4}   % nord6
 % Frost
 \definecolor{NordCyan}{HTML}{8FBCBB}          % nord7
 \definecolor{NordBrightCyan}{HTML}{88C0D0}    % nord8
@@ -31,31 +32,95 @@
 \definecolor{NordGreen}{HTML}{A3BE8C}         % nord14
 \definecolor{NordMagenta}{HTML}{B48EAD}       % nord15
 
-\setbeamercolor*{background canvas}{bg=NordBlack}
-\setbeamercolor*{normal text}{fg=NordWhite}
-\setbeamercolor*{alerted text}{fg=NordRed}
-\setbeamercolor*{example text}{fg=NordBrightCyan}
-\setbeamercolor*{structure}{fg=NordCyan}
 
-\setbeamercolor*{title}{fg=NordGreen}
-\setbeamercolor*{subtitle}{fg=NordBlue}
-\setbeamercolor*{frametitle}{fg=NordGreen}
-\setbeamercolor*{framesubtitle}{fg=NordBlue}
-\setbeamercolor*{section in toc}{fg=NordGreen}
-\setbeamercolor*{subsection in toc}{fg=NordBlue}
-\setbeamercolor*{subsection in toc shaded}{fg=NordCyan!20!NordBrightBlack}
+%%%%% create alias for colors according to usage
+\DeclareOptionBeamer{style}{\def\beamer@nordtheme@style{#1}}
+\ExecuteOptionsBeamer{style=dark} % `dark` will be default if nothing is given
+\ProcessOptionsBeamer
 
-\setbeamercolor*{itemize item}{fg=NordGreen}
-\setbeamercolor*{enumerate item}{fg=NordGreen}
+\def\beamer@nordtheme@styledark{dark}%
+\def\beamer@nordtheme@stylelight{light}%
 
-\setbeamercolor*{section in head/foot}{bg=NordBlack, fg=NordCyan}
 
-\setbeamercolor{block title}{bg=NordBlack!80,fg=NordGreen}
-\setbeamercolor{block title example}{bg=NordBlack!80,parent={example text}}
-\setbeamercolor{block title alerted}{bg=NordBlack!80,parent={alerted text}}
-\setbeamercolor{block body}{bg=NordGreen!50!NordBlack,fg=NordCyan}
-\setbeamercolor{block body example}{bg=NordBrightCyan!50!NordBlack,fg=NordWhite}
-\setbeamercolor{block body alerted}{bg=NordRed!50!NordBlack,fg=NordWhite}
+\colorlet{ColorAlertedText}{NordRed}
+\colorlet{ColorSubtitle}{NordBlue}
+\colorlet{ColorSubsectionInToc}{ColorSubtitle}
+
+\ifx\beamer@nordtheme@style\beamer@nordtheme@styledark%
+  \colorlet{ColorBackground}{NordBlack}
+  \colorlet{ColorText}{NordWhite}
+  \colorlet{ColorExampleText}{NordBrightCyan}
+  \colorlet{ColorStructure}{NordCyan}
+  \colorlet{ColorTitle}{NordGreen}
+  \colorlet{ColorSubsectionInTocShaded}{NordCyan!20!NordBrightBlack}
+  \colorlet{ColorItemizeItem}{NordGreen}
+  \colorlet{ColorBlockTitleBg}{NordBlack!80}
+  \colorlet{ColorExampleBlockTitleBg}{ColorBlockTitleBg}
+  \colorlet{ColorAlertedBlockTitleBg}{ColorBlockTitleBg}
+  \colorlet{ColorBlockBodyBg}{NordGreen!50!NordBlack}
+  \colorlet{ColorExampleBlockBodyBg}{NordBrightCyan!50!NordBlack}
+  \colorlet{ColorAlertedBlockBodyBg}{NordRed!50!NordBlack}
+  \colorlet{ColorBlockBodyFg}{NordCyan}
+  \colorlet{ColorExampleBlockBodyFg}{NordWhite}
+  \colorlet{ColorAlertedBlockBodyFg}{NordWhite}
+\else%
+  \ifx\beamer@nordtheme@style\beamer@nordtheme@stylelight%
+    \colorlet{ColorBackground}{NordBrightestWhite}
+    \colorlet{ColorText}{NordBrightBlack}
+    \colorlet{ColorExampleText}{NordCyan}
+    \colorlet{ColorStructure}{NordBrightCyan}
+    \colorlet{ColorTitle}{NordBrightBlue}
+    \colorlet{ColorSubtitle}{NordBlue}
+    \colorlet{ColorSubsectionInTocShaded}{ColorSubsectionInToc!50!ColorBackground}
+    \colorlet{ColorItemizeItem}{ColorStructure}
+    \colorlet{ColorBlockTitleBg}{NordGreen!50}
+    \colorlet{ColorExampleBlockTitleBg}{ColorExampleText!50}
+    \colorlet{ColorAlertedBlockTitleBg}{ColorAlertedText!50}
+    \colorlet{ColorBlockBodyBg}{NordGreen!20}
+    \colorlet{ColorExampleBlockBodyBg}{ColorExampleText!20}
+    \colorlet{ColorAlertedBlockBodyBg}{ColorAlertedText!20}
+    \colorlet{ColorBlockBodyFg}{ColorText}
+    \colorlet{ColorExampleBlockBodyFg}{ColorText}
+    \colorlet{ColorAlertedBlockBodyFg}{ColorText}
+  \else%
+    \PackageError{beamercolorthemeNord}{Unknow style option `\beamer@nordtheme@style`}{extra help}
+  \fi%
+\fi%
+
+
+\colorlet{ColorNormalText}{ColorText}
+\colorlet{ColorFrameTitle}{ColorTitle}
+\colorlet{ColorFrameSubtitle}{ColorSubtitle}
+\colorlet{ColorSectionInToc}{ColorTitle}
+\colorlet{ColorEnumerateColor}{ColorItemizeItem}
+\colorlet{ColorSectionInHeadFoot}{ColorStructure}
+
+%%%%% set beamer color
+\setbeamercolor*{background canvas}{bg=ColorBackground}
+\setbeamercolor*{normal text}{fg=ColorNormalText}
+\setbeamercolor*{alerted text}{fg=ColorAlertedText}
+\setbeamercolor*{example text}{fg=ColorExampleText}
+\setbeamercolor*{structure}{fg=ColorStructure}
+
+\setbeamercolor*{title}{fg=ColorTitle}
+\setbeamercolor*{subtitle}{fg=ColorSubtitle}
+\setbeamercolor*{frametitle}{fg=ColorFrameTitle}
+\setbeamercolor*{framesubtitle}{fg=ColorFrameSubtitle}
+\setbeamercolor*{section in toc}{fg=ColorSectionInToc}
+\setbeamercolor*{subsection in toc}{fg=ColorSubsectionInToc}
+\setbeamercolor*{subsection in toc shaded}{fg=ColorSubsectionInTocShaded}
+
+\setbeamercolor*{itemize item}{fg=ColorItemizeItem}
+\setbeamercolor*{enumerate item}{fg=ColorEnumerateColor}
+
+\setbeamercolor*{section in head/foot}{bg=ColorBackground, fg=ColorSectionInHeadFoot}
+
+\setbeamercolor{block title}{bg=ColorBlockTitleBg,fg=NordGreen}
+\setbeamercolor{block title example}{bg=ColorExampleBlockTitleBg,parent={example text}}
+\setbeamercolor{block title alerted}{bg=ColorAlertedBlockTitleBg,parent={alerted text}}
+\setbeamercolor{block body}{bg=ColorBlockBodyBg,fg=ColorBlockBodyFg}
+\setbeamercolor{block body example}{bg=ColorExampleBlockBodyBg,fg=ColorExampleBlockBodyFg}
+\setbeamercolor{block body alerted}{bg=ColorAlertedBlockBodyBg,fg=ColorAlertedBlockBodyFg}
 
 \setbeamercolor{caption}{fg=NordBrightBlue}
 
