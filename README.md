@@ -46,7 +46,8 @@ Light Style                             |  Dark Style
 
 Please send a pull request to add your usecase
 
-- [Ph.D. defense of Junwei Wang](https://junwei-wang.github.io/pdfs/slides/2020-phd-defense-handout.pdf)
+- [Ph.D. defense](https://junwei-wang.github.io/pdfs/slides/2020-phd-defense-handout.pdf) by [Junwei Wang](https://github.com/junwei-wang)
+- [CHES 2020 presentation on white-box cryptography](https://iacr.org/submit/files/slides/2020/tches/ches2020/30398/slides.pdf) by [Junwei Wang](https://github.com/junwei-wang)
 
 ## Maintainer
 
