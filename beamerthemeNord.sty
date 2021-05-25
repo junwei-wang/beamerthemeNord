@@ -24,6 +24,17 @@
 
 \setbeamersize{text margin left=8mm,text margin right=8mm}
 
+% venue
+\newcommand{\venue}{\@dblarg\nord@venue}
+\long\def\nord@venue[#1]#2{%
+  \def\insertvenue{#2}%
+  \def\nord@shortvenue{#1}%
+}
+\venue{}
+\newcommand\insertshortvenue[1][]{%
+  \let\thanks=\@gobble%
+  \beamer@setupshort{#1}%
+  \beamer@insertshort{\nord@shortvenue}}
 
 \setbeamertemplate{caption}{\insertcaption}
 
@@ -45,6 +56,10 @@
   \newbox\nord@tmpbox
   \setbox\nord@tmpbox\hbox{%
     \insertshortauthor\qquad%
+    \ifx\nord@shortvenue\@empty\else%
+      \insertshortvenue%
+      \qquad%
+    \fi%
     [\insertframenumber/\inserttotalframenumber]%
   }
   \vspace{5.2mm}
@@ -56,6 +71,7 @@
   \setcounter{footnote}{1} % \dagger
   {\usebeamerfont{title}\usebeamercolor[fg]{title}\bfseries\boldmath\inserttitle}
   \ifx\insertsubtitle\@empty\else\\[1em] {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\fi~\\[3em]
+  \ifx\insertvenue\@empty\else{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertvenue}\\[1.5em]\fi
   {\usebeamerfont{author}\usebeamercolor{author}\insertauthor}
   \ifx\insertinstitute\@empty\else\\[.5em]{\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute}\fi
   \\[1.5em]
