@@ -43,7 +43,10 @@
 }
 \setbeamertemplate{footline}{
   \newbox\nord@tmpbox
-  \setbox\nord@tmpbox\hbox{[\insertframenumber/\inserttotalframenumber]}
+  \setbox\nord@tmpbox\hbox{%
+    \insertshortauthor\qquad%
+    [\insertframenumber/\inserttotalframenumber]%
+  }
   \vspace{5.2mm}
   \hspace{2mm}\noindent\hfill\box\nord@tmpbox\hspace{2mm}
   \vspace{1.3mm}
