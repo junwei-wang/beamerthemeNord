@@ -13,6 +13,12 @@
 \DeclareOptionBeamer{style}{
   \PassOptionsToPackage{style=#1}{beamercolorthemeNord}
 }
+\newif\ifnord@footlineauthor
+\nord@footlineauthorfalse
+\DeclareOptionBeamer{footlineauthor}{\nord@footlineauthortrue}
+\newif\ifnord@footlinevenue
+\nord@footlinevenuefalse
+\DeclareOptionBeamer{footlinevenue}{\nord@footlinevenuetrue}
 \ProcessOptionsBeamer
 
 \RequirePackage{ifthen}
@@ -55,10 +61,12 @@
 \setbeamertemplate{footline}{
   \newbox\nord@tmpbox
   \setbox\nord@tmpbox\hbox{%
-    \insertshortauthor\qquad%
+    \ifnord@footlineauthor\insertshortauthor\qquad\fi%
     \ifx\nord@shortvenue\@empty\else%
-      \insertshortvenue%
-      \qquad%
+      \ifnord@footlinevenue%
+        \insertshortvenue%
+        \qquad%
+      \fi%
     \fi%
     [\insertframenumber/\inserttotalframenumber]%
   }
