@@ -77,14 +77,13 @@
 \setbeamertemplate{title page}{
   \renewcommand\thefootnote{\fnsymbol{footnote}}
   \setcounter{footnote}{1} % \dagger
-  {\usebeamerfont{title}\usebeamercolor[fg]{title}\bfseries\boldmath\inserttitle}
-  \ifx\insertsubtitle\@empty\else\\[1em] {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle}\fi~\\[3em]
-  \ifx\insertvenue\@empty\else{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertvenue}\\[1.5em]\fi
-  {\usebeamerfont{author}\usebeamercolor{author}\insertauthor}
-  \ifx\insertinstitute\@empty\else\\[.5em]{\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute}\fi
-  \\[1.5em]
-  {\usebeamerfont{date}\usebeamercolor{date}\insertdate}
-  \\
+  {\usebeamerfont{title}\usebeamercolor[fg]{title}\bfseries\boldmath\inserttitle\par}
+  \ifx\insertsubtitle\@empty\else\vspace{1em}{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}\fi\vspace{3em}
+  \ifx\insertvenue\@empty\else{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertvenue\par}\vspace{1.5em}\fi
+  {\usebeamerfont{author}\usebeamercolor{author}\insertauthor\par}
+  \ifx\insertinstitute\@empty\else\vspace{.5em}{\usebeamerfont{institute}\usebeamercolor{institute}\insertinstitute\par}\fi
+  \vspace{1.5em}
+  {\usebeamerfont{date}\usebeamercolor{date}\insertdate\par}
   \renewcommand\thefootnote{\arabic{footnote}}
   \setcounter{footnote}{0}
 }
