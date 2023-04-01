@@ -27,8 +27,8 @@ If you want to customize this theme, you can also clone this repository and copy
 
 See [beamerthemeNord.pdf](./beamerthemeNord.pdf) or [beamerthemeNord.tex](./beamerthemeNord.tex)
 
-**Note**: This theme currently only supports XeLaTeX, which is convinent to use system-wide fonts and to write in non-ASCII characters.
-You are weclome to contribute on compatability for other TeX distributions.
+**Note**: This theme currently only supports XeLaTeX, which is convenient to use system-wide fonts and to write in non-ASCII characters.
+You are welcome to contribute on compatibility for other TeX distributions.
 
 ## Screenshots
 
